@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# حكايتنا ❤️
 
-## Getting Started
+Abdo ❤️ Kawtar
 
-First, run the development server:
+A mobile-first romantic birthday experience in Moroccan Darija.
+
+Birthday: **02/09/2026**
+
+---
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) on a phone or Chrome device mode (390×844).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run lint
+npm run typecheck
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## PERSONALIZATION CHECKLIST
 
-To learn more about Next.js, take a look at the following resources:
+Kawtar, Kooki, and the known memories are already in the site.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Abdo still needs to add:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Timeline dates
 
-## Deploy on Vercel
+In `src/data/memories.ts`, `timelineMemories` uses empty `date` fields until the real dates are known.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Put the real dates on:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- بداية الحكاية
+- أول لحظة مميزة
+- أول kiss
+- الصورة الوحيدة اللي فيها بجوج
+
+Use a `DD/MM/YYYY` value when you have it. Do not invent dates.
+
+Gallery captions in the same file can be rewritten if you want them more specific.
+
+### Voice message
+
+Record the spoken message and save it as:
+
+- `/public/audio/voice-message.mp3`
+
+The dedicated song is already converted to `/public/audio/background.mp3`.
+
+### Time capsule preview
+
+Unlock date: `2027-09-02` in `src/data/config.ts`.
+
+To preview the unlocked letter, temporarily set `timeCapsuleUnlock` to a past date, then put it back.
+
+---
+
+## Assets already wired
+
+- `/public/memories/01.jpg` … `07.jpg` — gallery
+- `/public/memories/portrait.jpg` — best photo of Kawtar
+- `/public/memories/together.jpg` — only photo of Abdo and Kawtar
+- `/public/memories/hidden.mp4` — best video of Kawtar (dedicated section, tap to play)
+- `/public/audio/background.mp3` — song dedicated to Kawtar (off until she presses play)
+
+---
+
+## PWA
+
+- App name: حكايتنا ❤️
+- Short name: حكايتنا
+
+---
+
+## Notes
+
+- Mobile is the primary design target (390×844).
+- `prefers-reduced-motion` is respected.
+- No analytics, login, or database.
+- Audio never autoplays.
