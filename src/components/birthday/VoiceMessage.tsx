@@ -5,6 +5,7 @@ import { birthdayConfig, copy } from "@/data/config";
 import { audioExists, formatDuration } from "@/lib/audio";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { Section } from "@/components/ui/Section";
+import { cn } from "@/lib/cn";
 
 const BAR_COUNT = 28;
 
@@ -18,6 +19,8 @@ export function VoiceMessage() {
   const reducedMotion = usePrefersReducedMotion();
 
   const [available, setAvailable] = useState(false);
+  const [unlocked, setUnlocked] = useState(false);
+  const [revealed, setRevealed] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [current, setCurrent] = useState(0);
@@ -34,7 +37,13 @@ export function VoiceMessage() {
 
   useEffect(() => {
     drawWave(canvasRef.current, null, reducedMotion);
-  }, [available, reducedMotion]);
+  }, [available, revealed, reducedMotion]);
+
+  useEffect(() => {
+    if (!unlocked || reducedMotion || revealed) return;
+    const id = window.setTimeout(() => setRevealed(true), 480);
+    return () => window.clearTimeout(id);
+  }, [unlocked, reducedMotion, revealed]);
 
   useEffect(() => {
     const context = contextRef.current;
@@ -87,12 +96,39 @@ export function VoiceMessage() {
     if (!reducedMotion) tick();
   }
 
+  const showPlayer = available && revealed;
+
   return (
     <Section id="voice" title={copy.voice.heading}>
       <p className="lede mb-6">{copy.voice.subtext}</p>
       <div className="player glass-card">
-        {available ? (
-          <>
+        {!revealed ? (
+          <div className={cn("voice-lock", unlocked && "is-open")}>
+            <p className="voice-lock-icon" aria-hidden="true">
+              🔒
+            </p>
+            <p className="voice-lock-label">{copy.voice.lockedLabel}</p>
+            {available && !unlocked ? (
+              <button
+                type="button"
+                className="btn-romantic mt-4"
+                onClick={() => {
+                  setUnlocked(true);
+                  if (reducedMotion) setRevealed(true);
+                }}
+                aria-label={copy.a11y.voiceUnlock}
+              >
+                {copy.voice.unlock}
+              </button>
+            ) : !available ? (
+              <p className="empty-note mt-4">{copy.voice.empty}</p>
+            ) : null}
+          </div>
+        ) : null}
+
+        {showPlayer ? (
+          <div className={cn("voice-unlocked", !reducedMotion && "is-enter")}>
+            <p className="lede mb-4">{copy.voice.afterUnlock}</p>
             <audio
               ref={audioRef}
               src={birthdayConfig.audio.voice}
@@ -105,6 +141,14 @@ export function VoiceMessage() {
                 if (frameRef.current) cancelAnimationFrame(frameRef.current);
               }}
             />
+            <button
+              type="button"
+              className="btn-romantic mb-4"
+              onClick={toggle}
+              aria-pressed={playing}
+            >
+              {playing ? copy.voice.pause : copy.voice.listen}
+            </button>
             <div className="player-top">
               <button
                 type="button"
@@ -125,7 +169,6 @@ export function VoiceMessage() {
             </div>
             <div className="player-meta">
               <span>{formatDuration(current)}</span>
-              <span>{copy.voice.listen}</span>
               <span>{formatDuration(duration)}</span>
             </div>
             <input
@@ -134,7 +177,7 @@ export function VoiceMessage() {
               max={duration || 0}
               step={0.1}
               value={current}
-                  aria-label="فين وصلات الرسالة"
+              aria-label="فين وصلات الرسالة"
               onChange={(event) => {
                 const audio = audioRef.current;
                 const next = Number(event.target.value);
@@ -142,10 +185,8 @@ export function VoiceMessage() {
                 setCurrent(next);
               }}
             />
-          </>
-        ) : (
-          <p className="empty-note">{copy.voice.empty}</p>
-        )}
+          </div>
+        ) : null}
       </div>
     </Section>
   );

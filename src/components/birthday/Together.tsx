@@ -14,18 +14,9 @@ export function Together() {
       <Reveal>
         <p className="lede mt-0">{copy.together.line1}</p>
       </Reveal>
-      <Reveal delayMs={280}>
-        <p className="lede together-pause">{copy.together.line2}</p>
-      </Reveal>
-      <Reveal delayMs={560}>
-        <p className="lede">{copy.together.line3}</p>
-      </Reveal>
-      <Reveal delayMs={840}>
-        <p className="lede">{copy.together.line4}</p>
-      </Reveal>
 
-      <Reveal delayMs={1100}>
-        <figure className="together-frame mt-10">
+      <Reveal delayMs={720}>
+        <figure className="together-frame together-glow mt-8">
           <Image
             src={togetherMemory.image}
             alt={togetherMemory.alt}
@@ -36,6 +27,16 @@ export function Together() {
           />
           <figcaption className="together-sign">{copy.together.sign}</figcaption>
         </figure>
+      </Reveal>
+
+      <Reveal delayMs={1280}>
+        <p className="lede together-pause">{copy.together.line2}</p>
+      </Reveal>
+      <Reveal delayMs={1560}>
+        <p className="lede">{copy.together.line3}</p>
+      </Reveal>
+      <Reveal delayMs={1840}>
+        <p className="lede">{copy.together.line4}</p>
       </Reveal>
     </Section>
   );

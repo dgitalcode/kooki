@@ -3,6 +3,7 @@
 import { useRef, useState, type PointerEvent } from "react";
 import { birthdayConfig, copy, formatIntroDate } from "@/data/config";
 import { useEasterEggs } from "@/components/birthday/EasterEggs";
+import { HeartDust } from "@/components/effects/HeartDust";
 
 type IntroProps = {
   onBegin: () => void;
@@ -43,7 +44,8 @@ export function Intro({ onBegin, leaving = false }: IntroProps) {
       className={leaving ? "intro-screen is-leaving" : "intro-screen"}
       aria-labelledby="intro-title"
     >
-      <div className="story-column">
+      <HeartDust />
+      <div className="story-column intro-cast">
         <time className="intro-date" dateTime={birthdayConfig.birthday}>
           {formatIntroDate(birthdayConfig.birthday)}
         </time>
@@ -57,7 +59,7 @@ export function Intro({ onBegin, leaving = false }: IntroProps) {
             onPointerLeave={endPress}
             onPointerCancel={endPress}
             onContextMenu={(event) => event.preventDefault()}
-            className="select-none bg-transparent p-0 text-inherit [-webkit-touch-callout:none]"
+            className="max-w-full select-none bg-transparent p-0 text-inherit [-webkit-touch-callout:none]"
             aria-label={`${birthdayConfig.title}. ضغط مطوّل.`}
           >
             {birthdayConfig.title}

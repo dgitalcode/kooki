@@ -1,18 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Noto_Sans_Arabic } from "next/font/google";
+import { Amiri, Noto_Naskh_Arabic } from "next/font/google";
 import { birthdayConfig } from "@/data/config";
 import "./globals.css";
 
-const notoSansArabic = Noto_Sans_Arabic({
+const notoNaskh = Noto_Naskh_Arabic({
   subsets: ["arabic", "latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
   variable: "--font-arabic",
 });
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+const amiri = Amiri({
+  subsets: ["arabic", "latin"],
+  weight: ["400", "700"],
   display: "swap",
   variable: "--font-display",
 });
@@ -44,7 +44,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="ar"
       dir="rtl"
-      className={`${notoSansArabic.variable} ${cormorant.variable} h-full antialiased`}
+      className={`${notoNaskh.variable} ${amiri.variable} h-full antialiased`}
     >
       <body className="min-h-full font-sans">{children}</body>
     </html>

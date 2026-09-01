@@ -19,17 +19,37 @@ export const birthdayConfig = {
 
 export type BirthdayConfig = typeof birthdayConfig;
 
+/**
+ * PERSONALIZE LATER (Abdo):
+ * بدّل `lines` ملي تكون جاهز.
+ * ما تخترعش ذكرى جديدة هنا إلا كانت حقيقية.
+ */
+export const oneThingIneverToldYou = {
+  title: "كاينة حاجة عمري قلتها ليك...",
+  tease: "بغيتي تعرفي؟",
+  button: "قولي ❤️",
+  lines: [
+    "كاينين بزاف ديال اللحظات معاك اللي يمكن تبان صغيرة، ولكن عندي أنا كتسوى بزاف.",
+    "ويمكن ما كنقولهاش ليك كفاية...",
+    "ولكن وجودك فحياتي كيهمني أكثر مما كنبين.",
+    "— Abdo ❤️",
+  ],
+} as const;
+
 export const journeySteps = [
   { id: "letter", n: 1 },
   { id: "voice", n: 2 },
   { id: "story", n: 3 },
-  { id: "kiss", n: 4 },
-  { id: "memories", n: 5 },
-  { id: "portrait", n: 6 },
-  { id: "video", n: 7 },
-  { id: "reasons", n: 8 },
-  { id: "secrets", n: 9 },
-  { id: "wish", n: 10 },
+  { id: "map", n: 4 },
+  { id: "kiss", n: 5 },
+  { id: "memories", n: 6 },
+  { id: "portrait", n: 7 },
+  { id: "video", n: 8 },
+  { id: "reasons", n: 9 },
+  { id: "open-when", n: 10 },
+  { id: "one-thing", n: 11 },
+  { id: "secrets", n: 12 },
+  { id: "wish", n: 13 },
 ] as const;
 
 export function splitIsoDate(iso: string): { year: string; month: string; day: string } {
@@ -76,14 +96,28 @@ export const copy = {
 هادشي كامل غير ليك نتي. ❤️`,
   },
   voice: {
-    heading: "كاينة حاجة ما بغيتش نكتبها...",
-    subtext: "هادي خاصك تسمعيها بصوتي.",
-    listen: "سمعيني ❤️",
+    heading: "كاينة حاجة ما قدرتش نكتبها...",
+    subtext: "خاصك تسمعيها بصوتي.",
+    unlock: "حلّيها ❤️",
+    afterUnlock: "دابا سمعيني...",
+    listen: "▶️ سمعيني",
     pause: "وقفي",
+    lockedLabel: "مسدودة",
     empty: "هاد الرسالة الصوتية غادي تكون هنا، بصوتي. دابا مازال.",
   },
   timeline: {
     heading: "ومن هنا بدات الحكاية...",
+  },
+  map: {
+    heading: "ماشي غير ذكريات...",
+    lede: "هادي حكايتنا. ❤️",
+    hint: "اضغطي باش تتحل",
+  },
+  openWhen: {
+    heading: "كاينين رسائل ليك...",
+    lede: "ماشي دابا كاملين. افتحي كل وحدة ملي تحسي بيها.",
+    closedHint: "مسكرة. اضغطي باش تحليها.",
+    close: "سديها",
   },
   kiss: {
     heading: "كاينة واحد الذكرى كنضحك كل مرة نتفكرها 😂",
@@ -155,16 +189,18 @@ export const copy = {
   capsule: {
     heading: "ولكن... مازال كاين واحد الباب.",
     teaser: "هاد الرسالة ما خاصهاش تتقرا اليوم.",
-    open: "افتحيها",
     wait: "رجعي هنا فـ {date}.",
+    remaining: "باقي شوية...",
+    open: "افتحيها",
+    continue: "كمل...",
     lockedHint: "هاد الباب باقي مسدود. الوقت ما كملش.",
-    unlocked: `إلى وصلتي لهنا من بعد عام...
-
-راه دازت سنة كاملة من نهار عطيتك هاد الهدية.
-
-وكنتمنا تكون هاد السنة عطاوك ألف سبب باش تبتاسمي.
-
-من Abdo لـ Kooki ❤️`,
+    unlockedLines: [
+      "إلى وصلتي لهنا من بعد عام...",
+      "راه دازت سنة كاملة من نهار عطيتك هاد الهدية.",
+      "وكنتمنا تكون هاد السنة عطاوك ألف سبب باش تبتاسمي.",
+      "واش مازال كتغوتي بحال الحمقة؟ 😂❤️",
+      "من Abdo لـ Kooki ❤️",
+    ],
   },
   easter: {
     heart: "🤫 آش كتقلبي؟ 😂❤️",
@@ -191,5 +227,9 @@ export const copy = {
     progress: "تقدم الحكاية",
     closeDialog: "سدي الصورة",
     heart: "قلب",
+    envelope: "رسالة",
+    mapNode: "محطة من الحكاية",
+    voiceUnlock: "حلّي الرسالة الصوتية",
+    capsuleLock: "كبسولة الوقت",
   },
 } as const;

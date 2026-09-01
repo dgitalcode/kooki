@@ -7,7 +7,7 @@ function mulberry32(seed: number) {
   };
 }
 
-const specks = Array.from({ length: 14 }, (_, index) => {
+const specks = Array.from({ length: 12 }, (_, index) => {
   const random = mulberry32(index + 41);
   return {
     id: index,
@@ -15,6 +15,19 @@ const specks = Array.from({ length: 14 }, (_, index) => {
     top: `${20 + random() * 70}%`,
     delay: `${random() * 8}s`,
     duration: `${12 + random() * 10}s`,
+  };
+});
+
+const edgeHearts = Array.from({ length: 5 }, (_, index) => {
+  const random = mulberry32(index + 91);
+  const startSide = index % 2 === 0;
+  return {
+    id: `h-${index}`,
+    left: startSide ? `${4 + random() * 10}%` : `${86 + random() * 10}%`,
+    top: `${12 + random() * 76}%`,
+    delay: `${random() * 7}s`,
+    duration: `${14 + random() * 8}s`,
+    size: `${0.55 + random() * 0.35}rem`,
   };
 });
 
@@ -32,6 +45,21 @@ export function Particles() {
             animationDuration: speck.duration,
           }}
         />
+      ))}
+      {edgeHearts.map((heart) => (
+        <span
+          key={heart.id}
+          className="heart-speck heart-speck-fixed"
+          style={{
+            left: heart.left,
+            top: heart.top,
+            fontSize: heart.size,
+            animationDelay: heart.delay,
+            animationDuration: heart.duration,
+          }}
+        >
+          ♡
+        </span>
       ))}
     </div>
   );
