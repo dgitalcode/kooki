@@ -10,7 +10,6 @@ import { Letter } from "@/components/birthday/Letter";
 import { Memories } from "@/components/birthday/Memories";
 import { OneThing } from "@/components/birthday/OneThing";
 import { OpenWhen } from "@/components/birthday/OpenWhen";
-import { OurStoryMap } from "@/components/birthday/OurStoryMap";
 import { Portrait } from "@/components/birthday/Portrait";
 import { Reasons } from "@/components/birthday/Reasons";
 import { SecretBoxes } from "@/components/birthday/SecretBoxes";
@@ -60,7 +59,6 @@ export function BirthdayExperience() {
               <Letter />
               <VoiceMessage />
               <Timeline />
-              <OurStoryMap />
               <FirstKiss />
               <Memories />
               <Portrait />

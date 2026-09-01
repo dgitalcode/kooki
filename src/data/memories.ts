@@ -23,7 +23,7 @@ export const timelineMemories: Memory[] = [
     title: "بداية الحكاية",
     image: "/memories/01.jpg",
     alt: "صورة من بداية الحكاية مع Kawtar",
-    text: "كل حكاية عندها بداية. هادي ديالنا بدات بهدوء... ومن بعد ولات شي حاجة أكبر.",
+    text: "كل قصة عندها نهاية إلا القصة ديالنا  ما كنظنش تسالي (ايلا درتي عقلك فبلاصتو 🐥)",
   },
   {
     id: "story-first",
@@ -31,28 +31,29 @@ export const timelineMemories: Memory[] = [
     title: "أول لحظة مميزة",
     image: "/memories/02.jpg",
     alt: "صورة ديال لحظة مميزة مع Kawtar",
-    text: "كاينة واحد اللحظة... ما محتاجة حتى تاريخ باش تبقى مهمة.",
+    text: "أول لحظة مميزة راه بااينة و معروفة هي فاش شفت بنتي أول مرة 🥲",
   },
   {
     id: "story-kiss",
     date: "",
     title: "أول kiss",
-    alt: "",
-    text: "هاد اللحظة... غادي نحكيها ليك بشوية. 😂",
+    image: "/memories/05.jpg",
+    alt: "صورة ديال Kawtar",
+    text: "أول بوسة ف حنيكاتك حسيت بها حلوة كثر من العسل 🥵",
   },
   {
     id: "story-together",
     date: "",
     title: "الصورة الوحيدة اللي فيها بجوج",
     alt: "",
-    text: "كاينة واحد الصورة... غادي توصلي ليها. خليها تسالي فبلاصتها.",
+    text: "كاينة واحد التصويرة ديال العبار  بلاتي و تشوفيها 😐",
   },
   {
     id: "story-today",
     date: "02/09/2026",
     title: "اليوم",
     alt: "",
-    text: "نهارك نتي. وماشي نهار عادي.",
+    text: "هاد نهار ديالك  الزين ديالي و حالف ما نعصب بنتي و لا نقلقها 🙂",
   },
 ];
 
@@ -60,7 +61,7 @@ export const galleryMemories: Memory[] = [
   {
     id: "gallery-01",
     date: "",
-    title: "لحظة",
+    title: "حبيبتي 💖",
     image: "/memories/01.jpg",
     alt: "صورة ديال Kawtar",
     text: "واحد من الصور اللي بغيت تبقى عندك.",
@@ -68,7 +69,7 @@ export const galleryMemories: Memory[] = [
   {
     id: "gallery-02",
     date: "",
-    title: "ضحكة",
+    title: "كبيدتي  💖",
     image: "/memories/02.jpg",
     alt: "صورة ديال Kawtar",
     text: "هاد الصورة كتخلي نيّت نبتسم.",
@@ -76,7 +77,7 @@ export const galleryMemories: Memory[] = [
   {
     id: "gallery-03",
     date: "",
-    title: "كوكي",
+    title: "بنتي 💖",
     image: "/memories/03.jpg",
     alt: "صورة ديال Kawtar",
     text: "شي صور ما محتاجين حتى تعليق طويل.",
@@ -84,7 +85,7 @@ export const galleryMemories: Memory[] = [
   {
     id: "gallery-04",
     date: "",
-    title: "نهار من النهارات",
+    title: "فنيكيشتي💖",
     image: "/memories/04.jpg",
     alt: "صورة ديال Kawtar",
     text: "بقيت كنرجع لهادي أكثر مما كنت كنظن.",
@@ -92,7 +93,7 @@ export const galleryMemories: Memory[] = [
   {
     id: "gallery-05",
     date: "",
-    title: "تفصيل صغير",
+    title: "الفليليسة ديالي 💖",
     image: "/memories/05.jpg",
     alt: "صورة ديال Kawtar",
     text: "حتى التفاصيل الصغيرة عندي كتسوى.",
@@ -100,7 +101,7 @@ export const galleryMemories: Memory[] = [
   {
     id: "gallery-06",
     date: "",
-    title: "صورة بقات",
+    title: "الزين ديالي 💖",
     image: "/memories/06.jpg",
     alt: "صورة ديال Kawtar",
     text: "هادشي ما خاصوش يتخسر فالتلفون ويتنسى.",
@@ -108,7 +109,7 @@ export const galleryMemories: Memory[] = [
   {
     id: "gallery-07",
     date: "",
-    title: "Kooki",
+    title: "الاميرة ديالي 💖",
     image: "/memories/07.jpg",
     alt: "صورة ديال Kawtar",
     text: "واحدة من الحوايج اللي بغيت تبقى عندك.",
@@ -147,9 +148,9 @@ export const hiddenMemory: Memory = {
   id: "memory-hidden",
   date: "",
   title: "زيادة صغيرة",
-  image: "/memories/05.jpg",
+  image: "/memories/gift.jpg",
   alt: "صورة مخفية لـ Kawtar",
-  text: "ما كانش خاصك توصلي حتى لهنا... ولكن حيت وصلتي، هادي زيادة غير ليك 😏",
+  text: "ما كانش خاصك توصلي حتى لهنا... ولكن حيت وصلتي،بغيت غير نفكرك بلي باقي محتافض بالكادو لي ما بغتيش تاخديه من عندي 💔😭",
   hidden: true,
 };
 
